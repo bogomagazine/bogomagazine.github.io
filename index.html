@@ -3,19 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>보고잡지 안내</title>
-<meta name="description" content="보고잡지 앱 설치 안내, 개인정보 처리방침, 이용약관">
-<link rel="stylesheet" href="style.css">
+<title>보고잡지</title>
+<meta name="description" content="가족이 앱에 올린 소식과 사진이 2주마다 종이 신문이 되어 할머니·할아버지 댁으로 갑니다. 보고잡지 안내, 설치 방법, 개인정보 처리방침, 이용약관.">
+<meta name="theme-color" content="#FF7A3D">
+<meta property="og:title" content="보고잡지">
+<meta property="og:description" content="가족의 소식이 종이 신문이 되어 할머니 댁으로">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<main>
-<header class="top"><a class="brand" href="./">보고잡지</a></header>
-<h1>보고잡지 안내</h1>
-<p class="meta">가족의 소식을 모아 종이 신문으로 전하는 서비스, 보고잡지의 공식 안내 페이지입니다.</p>
-<div class="card"><a class="title" href="install.html">앱 설치 안내 (베타)</a><p>안드로이드 APK 설치 방법과 아이폰 TestFlight 안내</p></div>
-<div class="card"><a class="title" href="privacy.html">개인정보 처리방침</a><p>어떤 정보를 왜 받고, 어떻게 보관·보호하는지</p></div>
-<div class="card"><a class="title" href="terms.html">이용약관</a><p>서비스 이용에 관한 약속</p></div>
-<footer>문의: <a href="mailto:help@bogojapji.kr">help@bogojapji.kr</a></footer>
-</main>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="assets/logo.svg" alt="">보고잡지</a>
+  <nav class="nav"><a href="install.html">설치 안내</a><a href="privacy.html">처리방침</a><a href="terms.html">약관</a></nav>
+</div></header>
+
+<main><div class="wrap">
+  <section class="hero">
+    <div>
+      <h1 class="reveal">가족의 소식이<br>종이 신문이 되어<br>할머니 댁으로</h1>
+      <p class="lead reveal" data-i="1">가족이 앱에 올린 글과 사진을 2주마다 한 부의 신문으로 엮어 받는 분께 우편으로 보내 드려요. 스마트폰이 어려운 어르신도 손에 쥐고 읽을 수 있게.</p>
+      <div class="chips reveal" data-i="2"><span>2주에 한 호</span><span>가족방 초대</span><span>질문카드</span><span>우편 배송</span></div>
+    </div>
+    <div class="paper-wrap reveal" data-i="2">
+      <div class="dday"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>마감까지 D-7</div>
+      <div class="paper" aria-hidden="true">
+        <div class="mast"><b>보고잡지</b><span>제2호 · 10.19 – 11.01</span></div>
+        <p class="head">처음으로 혼자 김치찌개를 끓여봤어요</p>
+        <div class="line"></div><div class="line s"></div>
+        <div class="photo"><img src="assets/characters/member-3.png" alt=""></div>
+        <div class="line"></div><div class="line s"></div>
+        <div class="by"><img src="assets/characters/member-3.png" alt="">손녀 지유</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="family reveal" data-i="3" aria-label="가족 캐릭터">
+    <img class="big" src="assets/characters/grandmother.png" alt="할머니">
+    <img class="big" src="assets/characters/grandfather.png" alt="할아버지">
+    <img src="assets/characters/member-1.png" alt="">
+    <img src="assets/characters/member-2.png" alt="">
+    <img src="assets/characters/member-4.png" alt="">
+    <img src="assets/characters/member-5.png" alt="">
+    <span class="cap">받는 분과 함께하는 가족</span>
+  </div>
+
+  <h2 class="reveal">안내</h2>
+  <a class="card reveal" data-i="1" href="install.html">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7m0 0 2.5-2.5M12 14l-2.5-2.5M10 18h4"/></svg></span>
+    <span><span class="t">앱 설치 안내 (베타)</span><div class="d">안드로이드 APK 설치 방법과 아이폰 TestFlight 안내</div></span>
+    <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+  <a class="card reveal" data-i="2" href="privacy.html">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></span>
+    <span><span class="t">개인정보 처리방침</span><div class="d">어떤 정보를 왜 받고, 어떻게 보관하고 지키는지</div></span>
+    <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+  <a class="card reveal" data-i="3" href="terms.html">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+    <span><span class="t">이용약관</span><div class="d">서비스를 함께 쓰기 위한 약속</div></span>
+    <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+</div></main>
+
+<footer><div class="wrap">
+  <div>© 2026 보고잡지 · <a href="mailto:help@bogojapji.kr">help@bogojapji.kr</a></div>
+  <div class="links"><a href="install.html">설치 안내</a><a href="privacy.html">개인정보 처리방침</a><a href="terms.html">이용약관</a></div>
+</div></footer>
+<script src="site.js"></script>
 </body>
 </html>
