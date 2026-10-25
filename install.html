@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>보고잡지 설치 안내</title>
-<meta name="description" content="보고잡지 베타 앱을 휴대폰에 설치하는 방법을 한 단계씩 안내해요.">
+<meta name="description" content="보고잡지 앱을 휴대폰에 설치하는 방법을 한 단계씩 안내해요.">
 <meta name="theme-color" content="#FF7A3D">
+<meta property="og:title" content="보고잡지 앱 설치 안내">
+<meta property="og:description" content="휴대폰에서 이 페이지를 열고 버튼 하나만 누르면 돼요.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site.css">
 </head>
@@ -16,35 +18,46 @@
 </div></header>
 
 <main><div class="wrap">
-  <span class="meta reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2l.9-5.5-4-3.9L9.5 8z"/></svg>미리 써 보는 베타 버전</span>
-  <h1 class="reveal" data-i="1">보고잡지 앱,<br>이렇게 설치해요</h1>
-  <p class="lead reveal" data-i="2">아직 앱 가게(스토어)에 올라가기 전이라 이 페이지에서 직접 설치해요. 천천히 따라오시면 5분이면 끝나요.</p>
-
-  <div class="where reveal" data-i="3">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
-    <div><strong>꼭 휴대폰에서 열어 주세요.</strong> 컴퓨터에서는 설치가 안 돼요. 카카오톡으로 받은 링크를 휴대폰에서 눌렀다면 잘 오신 거예요.</div>
+  <div class="app-head reveal">
+    <img src="assets/logo.svg" alt="보고잡지 앱 아이콘">
+    <div>
+      <h1>보고잡지</h1>
+      <p class="sub">가족의 소식이 종이 신문이 되어 할머니 댁으로</p>
+      <div class="ver"><span class="beta">미리 써 보는 베타</span><span>버전 1.0.0</span><span>2026년 10월 25일</span></div>
+    </div>
   </div>
 
-  <h2 class="reveal">어떤 휴대폰을 쓰시나요?</h2>
-  <div class="choose reveal" data-i="1" role="tablist" aria-label="휴대폰 종류">
+  <div class="where reveal" data-i="1">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+    <div><strong>꼭 휴대폰에서 열어 주세요.</strong> 카카오톡으로 받은 링크를 휴대폰에서 눌렀다면 잘 오신 거예요. 컴퓨터에서 보고 계시면 오른쪽 QR을 휴대폰 카메라로 비추세요.</div>
+  </div>
+
+  <h2 class="reveal" data-i="2">어떤 휴대폰을 쓰시나요?</h2>
+  <div class="choose reveal" data-i="2" role="tablist" aria-label="휴대폰 종류">
     <button role="tab" aria-selected="true" aria-controls="android" id="tab-android">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10a6 6 0 0 1 12 0v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><path d="M8 5 6.5 3M16 5l1.5-2M9 13h.01M15 13h.01"/></svg>
       갤럭시 (안드로이드)<small>삼성, LG 등</small>
     </button>
     <button role="tab" aria-selected="false" aria-controls="ios" id="tab-ios">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5c-.2 1.4-1.5 2.6-3 2.5-.2-1.4 1.2-2.7 3-2.5Z"/><path d="M17.6 12.3c0-2 1.7-3 1.8-3-1-1.4-2.5-1.6-3-1.7-1.3-.1-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.7-1.4 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.5-1-2.5-3.7Z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3.5c-.2 1.4-1.5 2.6-3 2.5-.2-1.4 1.2-2.7 3-2.5Z"/><path d="M17.6 12.3c0-2 1.7-3 1.8-3-1-1.4-2.5-1.6-3-1.7-1.3-.1-2.5.8-3.2.8-.7 0-1.7-.8-2.8-.7-1.4 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7s1.7.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.5-1-2.5-3.7Z"/></svg>
       아이폰<small>애플</small>
     </button>
   </div>
 
   <section id="android" class="panel" role="tabpanel" aria-labelledby="tab-android">
-    <p><a class="btn" href="https://expo.dev/accounts/borissals-team/projects/bogomagazine/builds/272f8eb5-5c4e-4412-a2a2-246f4c4c4c83"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg>1. 여기를 눌러 설치 파일 받기</a></p>
+    <div class="dl reveal">
+      <div>
+        <a class="btn" href="https://expo.dev/artifacts/eas/GRJ5FQlKustMQdNORgtmx8K3jL4ULER_KVHYJNT6Edo.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg>보고잡지 설치 파일 받기</a>
+        <p class="hint">설치 파일 약 88MB · 와이파이에서 받는 걸 권해요 · 버튼을 누르면 바로 내려받기가 시작돼요</p>
+      </div>
+      <div class="qr"><img src="assets/qr-install.svg" alt="설치 안내 페이지 QR 코드">휴대폰 카메라로<br>비추면 이 페이지가 열려요</div>
+    </div>
+
     <ol class="bigsteps">
       <li class="reveal">
         <span class="n" aria-hidden="true"></span>
         <h3>위 주황색 버튼을 누르세요</h3>
-        <p>영어로 된 화면이 하나 열려요. 거기서 <span class="screen on">Install</span> 글자를 누르면 돼요.</p>
-        <p>"이 유형의 파일은 휴대전화에 해를 끼칠 수 있습니다"라는 말이 떠도 괜찮아요. <span class="screen">다운로드</span>를 누르세요. 가게 밖에서 받는 앱이라 늘 나오는 안내예요.</p>
+        <p>"이 유형의 파일은 휴대전화에 해를 끼칠 수 있습니다"라는 말이 떠도 괜찮아요. <span class="screen on">다운로드</span>를 누르세요. 앱 가게 밖에서 받는 앱이라 늘 나오는 안내예요.</p>
       </li>
       <li class="reveal">
         <span class="n" aria-hidden="true"></span>
@@ -102,12 +115,12 @@
     <p>전에 받아 둔 보고잡지가 있으면 그것부터 지우고(앱을 길게 눌러 "설치 삭제") 1번부터 다시 하세요.</p>
   </div>
   <div class="qa reveal" data-i="2">
-    <b>다운로드 버튼이 아무 반응이 없어요</b>
+    <b>버튼을 눌러도 아무 반응이 없어요</b>
     <p>삼성 인터넷 대신 <strong>Chrome(크롬)</strong>으로 이 페이지를 열어 보세요. 주소를 길게 눌러 복사한 뒤 크롬에 붙여 넣으면 돼요.</p>
   </div>
   <div class="qa reveal" data-i="3">
-    <b>데이터가 많이 들까요?</b>
-    <p>설치 파일은 사진 몇십 장 정도 크기예요. 와이파이가 되는 곳에서 받으시면 걱정 없어요.</p>
+    <b>새 버전이 나오면요?</b>
+    <p>새 링크를 받으면 같은 방법으로 덮어 설치하면 돼요. 올린 글과 사진은 그대로 남아요.</p>
   </div>
   <div class="qa reveal" data-i="4">
     <b>내 정보는 안전한가요?</b>
@@ -116,7 +129,7 @@
 
   <div class="help reveal">
     <b>그래도 어려우면 가족에게 이 페이지를 보내 주세요</b>
-    같이 보면서 하면 금방이에요. 궁금한 점은 <a href="mailto:compuppy920@gmail.com">compuppy920@gmail.com</a>로 알려 주세요.
+    같이 보면서 하면 금방이에요. 궁금한 점은 <a href="mailto:compuppy920@gmail.com">compuppy920@gmail.com</a>으로 알려 주세요.
   </div>
 </div></main>
 
