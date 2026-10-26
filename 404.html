@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>보고잡지 초대</title>
+<meta name="description" content="가족이 보낸 보고잡지 초대예요. 앱에서 열어 가족방에 들어가세요.">
+<meta name="theme-color" content="#FF7A3D">
+<meta property="og:title" content="보고잡지 가족방 초대">
+<meta property="og:description" content="가족이 보낸 초대예요. 앱에서 열어 함께해요.">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/site.css">
+<style>
+  .invite { text-align: center; padding: 28px 0 12px; }
+  .invite .logo { width: 84px; height: 84px; border-radius: 24px; margin: 0 auto 18px; box-shadow: var(--shadow); }
+  .invite h1 { font-size: 28px; }
+  .invite .lead { font-size: 17px; }
+  .invite .btn { width: 100%; min-height: 60px; font-size: 18px; margin-top: 8px; }
+  .invite .note { margin-top: 18px; font-size: 14px; color: var(--text-3); }
+  .code { display: inline-block; background: var(--subtle); border: 1px solid var(--line); border-radius: 10px; padding: 4px 12px; font-weight: 700; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><img src="/assets/logo.svg" alt="">보고잡지</a>
+</div></header>
+
+<main><div class="wrap">
+  <div id="invite" class="invite" hidden>
+    <img class="logo" src="/assets/logo.svg" alt="">
+    <h1>가족방 초대가 도착했어요</h1>
+    <p class="lead">보고잡지 앱이 열리면 초대를 확인하고 가족방에 들어갈 수 있어요.</p>
+    <p><a id="open-app" class="btn" href="#">앱에서 열기</a></p>
+    <p><a class="btn secondary" href="/install.html">아직 앱이 없어요 · 설치하기</a></p>
+    <p class="note">앱이 안 열리면 먼저 설치한 뒤 이 링크를 다시 눌러 주세요. 초대 코드 <span id="code" class="code"></span></p>
+  </div>
+
+  <div id="missing" class="invite" hidden>
+    <img class="logo" src="/assets/logo.svg" alt="">
+    <h1>페이지를 찾을 수 없어요</h1>
+    <p class="lead">주소가 바뀌었거나 잘못 입력된 것 같아요.</p>
+    <p><a class="btn" href="/">안내 홈으로</a></p>
+  </div>
+</div></main>
+
+<footer><div class="wrap">
+  <div>© 2026 보고잡지 · <a href="mailto:compuppy920@gmail.com">compuppy920@gmail.com</a></div>
+  <div class="links"><a href="/install.html">설치 안내</a><a href="/privacy.html">개인정보 처리방침</a><a href="/terms.html">이용약관</a></div>
+</div></footer>
+
+<script>
+// 초대 링크 https://bogomagazine.co.kr/i/<코드> → 앱(bogomagazine://i/<코드>)으로 넘긴다.
+// GitHub Pages 는 동적 경로가 없어서 404 페이지가 /i/... 를 받아 처리한다. 앱이 없으면 설치 안내로.
+(function () {
+  var m = location.pathname.match(/^\/i\/([A-Za-z0-9_-]+)\/?$/);
+  var invite = document.getElementById('invite');
+  var missing = document.getElementById('missing');
+  if (!m) { missing.hidden = false; return; }
+  var code = m[1];
+  var appUrl = 'bogomagazine://i/' + encodeURIComponent(code);
+  document.getElementById('code').textContent = code;
+  var openBtn = document.getElementById('open-app');
+  openBtn.href = appUrl;
+  invite.hidden = false;
+  // 모바일이면 바로 한 번 앱 열기를 시도한다 (안 깔려 있으면 아무 일도 없고, 아래 버튼으로 설치 안내)
+  var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (mobile) {
+    setTimeout(function () { location.href = appUrl; }, 300);
+  }
+})();
+</script>
+</body>
+</html>
