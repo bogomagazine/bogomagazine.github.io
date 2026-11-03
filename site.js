@@ -208,33 +208,6 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
   if (location.hash === '#signup') open();
 })();
 
-// ④ 두 폰 화면 자동 스크롤 (개발 메모 5번): 게시물마다 2초 멈춤 → 0.8초 이동 → 마지막 다음엔 맨 위로, 반복
-// 섹션이 보일 때만, 마우스를 올리면 잠깐 멈춤. 두 폰은 1.4초 엇갈려 시작. 동작 줄이기면 첫 장면에 멈춤
-(function () {
-  var phones = document.querySelectorAll('[data-autoscroll]');
-  if (!phones.length || !('IntersectionObserver' in window)) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var HOLD = 2000, MOVE = 800;
-  phones.forEach(function (ph) {
-    var stops = ph.getAttribute('data-autoscroll').split(',').map(Number);
-    var img = ph.querySelector('.feed');
-    var card = ph.closest('.lp-card') || ph;
-    var i = 0, visible = false, hover = false, started = false;
-    function next() {
-      if (!visible || hover) { setTimeout(next, 300); return; }
-      i = (i + 1) % stops.length;
-      img.style.transform = 'translateY(' + stops[i] + 'px)';
-      setTimeout(next, MOVE + HOLD);
-    }
-    card.addEventListener('mouseenter', function () { hover = true; });
-    card.addEventListener('mouseleave', function () { hover = false; });
-    new IntersectionObserver(function (en) {
-      visible = en[0].isIntersecting;
-      if (visible && !started) { started = true; setTimeout(next, Number(ph.getAttribute('data-delay') || 0) + HOLD); }
-    }, { threshold: 0.3 }).observe(card);
-  });
-})();
-
 // 정책 페이지: 지금 읽는 조항을 목차에 표시 + 모바일 표 → 카드 이름표
 (function () {
   var toc = document.querySelector('.doc-toc');
