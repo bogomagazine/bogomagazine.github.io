@@ -374,6 +374,8 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .lp-terms dd { margin: 0; }
 .lp-terms p { margin-top: 8px; }
 .lp-pop .lp-btn { width: 100%; }
+.lp-ready { margin-top: -8px; font-size: 14px; line-height: 1.5; text-align: center; color: var(--text-secondary); }
+.lp-ready[hidden] { display: none; }
 .lp-pop.done { align-items: center; padding-top: 56px; text-align: center; }
 .lp-pop.done .head { align-items: center; }
 .lp-pop.done .lp-count { align-self: center; }

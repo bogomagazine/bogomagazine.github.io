@@ -111,7 +111,11 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
   }
   function phoneOk() { return /^01[016789]\d{7,8}$/.test(digits(phone.value)); }
   function platform() { var c = form.querySelector('[name="platform"]:checked'); return c ? c.value : ''; }
-  function update() { submit.disabled = !(phoneOk() && platform() && form.elements.agree.checked); }
+  // 백엔드 연결 전에는 신청 버튼을 막아 둔다 (SIGNUP_API_URL 이 생기면 자동으로 풀린다)
+  var ready = !!SIGNUP_API_URL;
+  var notReady = form.querySelector('[data-not-ready]');
+  if (notReady) notReady.hidden = ready;
+  function update() { submit.disabled = !ready || !(phoneOk() && platform() && form.elements.agree.checked); }
   function showErr(on, msg) {
     err.textContent = msg || '번호를 다시 확인해 주세요.';
     err.hidden = !on;
