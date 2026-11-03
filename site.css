@@ -269,7 +269,7 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 /* 폰 목업 (개발 메모 6번): 베젤 4.5 · 테두리 1px #D9D9D9 · 아래쪽은 카드에서 잘린다 */
 .phone-mock { position: absolute; left: 34.33px; top: 0; width: 251.35px; height: 534.39px; padding: 4.5px; background: #1F1F1F; border: 1px solid #D9D9D9; border-radius: 38.63px; box-shadow: 0 20.48px 51.2px rgba(196, 82, 26, .22); }
 .phone-mock.q { box-shadow: 0 17.07px 40.96px rgba(196, 82, 26, .2); }
-.phone-mock .scr { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 34.13px; overflow: hidden; }
+.phone-mock .scr { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 34.13px; overflow: hidden; clip-path: inset(0 round 34.13px); isolation: isolate; } /* 안쪽 스크롤 영역이 있어도 상태바·탭바 이미지가 화면 모서리 밖으로 나오지 않게 */
 .phone-mock .scr > img { position: absolute; left: 0; width: 100%; height: auto; max-width: none; pointer-events: none; }
 /* 폰 화면 안은 사용자가 마우스 휠·손가락으로 직접 내려 본다. 위(상태바·헤더)와 아래(글쓰기·탭바)는 고정 */
 .phone-mock .feed { position: absolute; left: 0; right: 0; top: 72.15px; bottom: 0; overflow-y: auto; overscroll-behavior: auto; scrollbar-width: none; padding-bottom: 105px; }
