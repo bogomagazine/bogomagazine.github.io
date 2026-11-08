@@ -266,8 +266,9 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
     at = to;
     show();
     leaf.style.zIndex = n + 1;
+    mag.classList.add('turning');
     clearTimeout(leaf._t);
-    leaf._t = setTimeout(function () { show(); }, 720);
+    leaf._t = setTimeout(function () { mag.classList.remove('turning'); show(); }, 720);
   }
   prev.addEventListener('click', function () { go(-1); });
   next.addEventListener('click', function () { go(1); });

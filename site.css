@@ -299,13 +299,11 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .mag[data-at="end"] .mag-book { transform: translateX(25%); }
 .mag-leaf { position: absolute; left: 50%; top: 0; width: 50%; height: 100%; transform-origin: left center; transform-style: preserve-3d; transition: transform 700ms cubic-bezier(.45, .05, .25, 1); }
 .mag-leaf.flipped { transform: rotateY(-180deg); }
-.mag-leaf img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--white); backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 10px 28px rgba(42, 39, 36, .14); }
+.mag-leaf img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--white); backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 14px 22px -12px rgba(42, 39, 36, .3); }
 .mag-leaf .back { transform: rotateY(180deg); }
-/* 책등 쪽 음영 — 오른쪽 면은 왼쪽 가장자리, 왼쪽 면은 오른쪽 가장자리 */
-.mag-leaf::after, .mag-leaf::before { content: ""; position: absolute; top: 0; bottom: 0; width: 14%; pointer-events: none; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.mag-leaf::after { left: 0; background: linear-gradient(90deg, rgba(42, 39, 36, .12), transparent); transform: translateZ(1px); }
-.mag-leaf::before { left: 0; background: linear-gradient(90deg, rgba(42, 39, 36, .12), transparent); transform: rotateY(180deg) translateZ(1px); }
-.mag-leaf:first-child::after, .mag-leaf:last-child::before { display: none; }
+/* 접히는 선: 가운데에 좁게, 양쪽 면에 똑같이. 펼친 채 멈춰 있을 때만 */
+.mag-book::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 3%; margin-left: -1.5%; z-index: 10; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(42, 39, 36, .1) 50%, transparent); opacity: 0; transition: opacity var(--base); }
+.mag[data-at="mid"]:not(.turning) .mag-book::after { opacity: 1; }
 .mag-nav { position: absolute; top: calc(50% - 30px); width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: var(--white); color: var(--ink); font: inherit; font-size: 26px; line-height: 1; padding: 0 0 3px; cursor: pointer; box-shadow: var(--shadow); transition: opacity var(--base), transform var(--fast); z-index: 2; }
 .mag-nav.prev { left: 12px; }
 .mag-nav.next { right: 12px; }
