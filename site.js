@@ -235,3 +235,55 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
     }
   });
 })();
+
+// ⑤ 잡지 넘겨보기: 표지 한 면 → 펼친 두 면 → 뒤표지 한 면. 버튼·면 클릭·좌우 밀기·방향키
+(function () {
+  var mag = document.querySelector('[data-flipbook]');
+  if (!mag) return;
+  var book = mag.querySelector('.mag-book');
+  var leaves = mag.querySelectorAll('.mag-leaf');
+  var prev = mag.querySelector('[data-flip-prev]');
+  var next = mag.querySelector('[data-flip-next]');
+  var count = mag.querySelector('[data-flip-count]');
+  var labels = ['표지', '2 – 3면', '7 – 8면', '뒤표지'];
+  var n = leaves.length, at = 0;
+  function show() {
+    leaves.forEach(function (l, i) {
+      var on = i < at;
+      l.classList.toggle('flipped', on);
+      // 넘긴 장은 나중 것이 위, 안 넘긴 장은 앞 것이 위. 넘어가는 장은 잠시 맨 위
+      l.style.zIndex = on ? i + 1 : n - i;
+    });
+    mag.setAttribute('data-at', at === 0 ? '0' : at === n ? 'end' : 'mid');
+    prev.disabled = at === 0;
+    next.disabled = at === n;
+    count.textContent = labels[at];
+  }
+  function go(d) {
+    var to = Math.max(0, Math.min(n, at + d));
+    if (to === at) return;
+    var leaf = leaves[d > 0 ? at : to];
+    at = to;
+    show();
+    leaf.style.zIndex = n + 1;
+    clearTimeout(leaf._t);
+    leaf._t = setTimeout(function () { show(); }, 720);
+  }
+  prev.addEventListener('click', function () { go(-1); });
+  next.addEventListener('click', function () { go(1); });
+  var x0 = null;
+  book.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+  book.addEventListener('pointerup', function (e) {
+    if (x0 === null) return;
+    var dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 30) { go(dx < 0 ? 1 : -1); return; }
+    var r = book.getBoundingClientRect();
+    go(e.clientX > r.left + r.width / 2 ? 1 : -1);
+  });
+  book.addEventListener('pointercancel', function () { x0 = null; });
+  mag.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { go(1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
+  });
+  show();
+})();

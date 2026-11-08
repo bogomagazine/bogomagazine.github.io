@@ -149,7 +149,26 @@
           <li><img src="assets/landing/check.svg" alt="">곁에 두고 몇 번이고 다시 봐요</li>
         </ul>
       </div>
-      <img class="mag" src="assets/landing/magazine.webp" alt="보고잡지 제1호 표지와 질문카드 지면" width="664" height="429">
+      <!-- 잡지 넘겨보기: 표지 → 2·3 → 7·8 → 뒤표지 (말순여사네 가족신문 제1호 중 6면) -->
+      <div class="mag" data-flipbook role="group" aria-roledescription="잡지 넘겨보기" aria-label="보고잡지 예시 · 말순여사네 가족신문 제1호">
+        <button class="mag-nav prev" type="button" data-flip-prev aria-label="이전 장">‹</button>
+        <div class="mag-book">
+          <div class="mag-leaf">
+            <img class="front" src="assets/landing/mag-p1.webp" alt="표지 · 제1호, 받는 분 최말순, 한라산 사진" width="640" height="970">
+            <img class="back" src="assets/landing/mag-p2.webp" alt="2면 · 이번 호의 순간, 아들 이성호의 한라산 등산 사진" width="640" height="970" loading="lazy">
+          </div>
+          <div class="mag-leaf">
+            <img class="front" src="assets/landing/mag-p3.webp" alt="3면 · 가족 사진과 딸 김미경의 만두·아침밥 소식" width="640" height="970" loading="lazy">
+            <img class="back" src="assets/landing/mag-p7.webp" alt="7면 · 질문카드 ‘엄마가 TV를 켜시면 가장 먼저 보실 것 같은 건?’과 가족 답" width="640" height="970" loading="lazy">
+          </div>
+          <div class="mag-leaf">
+            <img class="front" src="assets/landing/mag-p8.webp" alt="8면 · 질문카드 ‘우리 가족 중에 화투 제일 잘 칠 것 같은 사람은?’과 가족 답" width="640" height="970" loading="lazy">
+            <img class="back" src="assets/landing/mag-p9.webp" alt="뒤표지 · 이번 호를 만든 가족과 다음 호 안내" width="640" height="970" loading="lazy">
+          </div>
+        </div>
+        <button class="mag-nav next" type="button" data-flip-next aria-label="다음 장">›</button>
+        <p class="mag-count" aria-live="polite" data-flip-count>표지</p>
+      </div>
     </div>
   </div></section>
 
