@@ -168,6 +168,7 @@
         </div>
         <button class="mag-nav next" type="button" data-flip-next aria-label="다음 장">›</button>
         <p class="mag-count" aria-live="polite" data-flip-count>표지</p>
+        <button class="mag-zoom" type="button" data-mag-zoom aria-label="잡지 크게 보기"><img src="assets/landing/plus.svg" alt=""></button>
       </div>
     </div>
   </div></section>
@@ -201,11 +202,11 @@
       <p>더 궁금한 점은<br><a href="mailto:compuppy920@gmail.com">compuppy920@gmail.com</a></p>
     </div>
     <div class="lp-qs">
-      <details class="lp-q"><summary>부모님도 앱을 설치해야 하나요?<img src="assets/landing/plus.svg" alt=""></summary><p>아니요. 부모님은 우편으로 잡지를 받기만 하시면 돼요. 앱은 소식을 올리는 가족만 쓰면 돼요.</p></details>
+      <details class="lp-q"><summary>어르신도 스마트폰이 필요하신가요?<img src="assets/landing/plus.svg" alt=""></summary><p>아니요. 어르신은 우편으로 실물 잡지를 받기만 하시면 돼요. 소식을 올리는 가족들만 웹이나 앱을 이용해주시면 됩니다.</p></details>
       <details class="lp-q"><summary>잡지는 얼마나 자주 오나요?<img src="assets/landing/plus.svg" alt=""></summary><p>2주에 한 호씩 와요. 2주 동안 가족이 올린 이야기를 한 권으로 엮어 보내드려요.</p></details>
       <details class="lp-q"><summary>첫 호 무료는 언제까지예요?<img src="assets/landing/plus.svg" alt=""></summary><p>11월 13일까지 가족방을 만들면 첫 호는 무료예요. 결제 정보 없이 시작해요.</p></details>
       <details class="lp-q"><summary>글을 잘 못 써도 괜찮을까요?<img src="assets/landing/plus.svg" alt=""></summary><p>그럼요. 사진 한 장, 짧은 한 줄이면 충분해요. 이야깃거리는 질문카드가 챙겨 드려요.</p></details>
-      <details class="lp-q"><summary>안드로이드에서도 쓸 수 있나요?<img src="assets/landing/plus.svg" alt=""></summary><p>네. 설치 없이 링크로 바로 쓸 수 있어요. 아이폰과 안드로이드 모두 같아요.</p></details>
+      <details class="lp-q"><summary>앱은 없나요?<img src="assets/landing/plus.svg" alt=""></summary><p>앱은 지금 출시 준비 중입니다! 안드로이드와 iOS 모두 준비 중이니 조금만 기다려주세요.</p></details>
     </div>
   </div></section>
 </main>
@@ -217,6 +218,15 @@
   </div>
   <nav aria-label="안내 문서"><a href="install.html">설치 안내</a><a class="strong" href="privacy.html">개인정보 처리방침</a><a href="terms.html">이용약관</a></nav>
 </div></footer>
+
+<!-- 잡지 크게 보기: ⑤ 잡지의 + 버튼 → 한 면씩 크게 · 넘기기(버튼·밀기·방향키) · X/Esc 로 닫기 -->
+<div class="mag-view" id="mag-view" role="dialog" aria-modal="true" aria-label="잡지 크게 보기" hidden>
+  <button class="x" type="button" data-close aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="mag-view-stage"><img data-view-img alt=""></div>
+  <button class="mag-nav prev" type="button" data-view-prev aria-label="이전 면">‹</button>
+  <button class="mag-nav next" type="button" data-view-next aria-label="다음 면">›</button>
+  <p class="mag-count" aria-live="polite" data-view-count></p>
+</div>
 
 <!-- 첫 호 무료로 시작하기 · PC QR 팝업 (Figma 랜딩페이지 2655:15053)
      휴대폰은 팝업 없이 바로 웹앱으로 간다. site.js 의 WEBAPP_URL 참고 -->

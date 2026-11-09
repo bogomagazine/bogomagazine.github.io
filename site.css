@@ -573,3 +573,22 @@ html.lp-lock { overflow: hidden; }
   .doc-text td[data-label]:first-child { font-weight: 700; }
   .doc-text th { font-size: 13px; color: var(--text-secondary); }
 }
+
+/* ⑤ 잡지 크게 보기 */
+.mag-zoom { position: absolute; top: 12px; right: 12px; z-index: 3; width: 40px; height: 40px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--white); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.mag-zoom img { width: 20px; height: 20px; }
+.mag-zoom:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.mag-view { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: rgba(20, 18, 16, .95); }
+.mag-view[hidden] { display: none; }
+.mag-view-stage { height: calc(100vh - 150px); height: calc(100dvh - 150px); max-width: calc(100vw - 32px); aspect-ratio: 640 / 970; touch-action: pan-y pinch-zoom; }
+.mag-view-stage img { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--white); user-select: none; -webkit-user-drag: none; }
+.mag-view .x { position: absolute; top: 16px; right: 16px; z-index: 2; width: 44px; height: 44px; padding: 10px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; cursor: pointer; }
+.mag-view .x svg { display: block; width: 24px; height: 24px; }
+.mag-view .mag-nav.prev { left: 24px; }
+.mag-view .mag-nav.next { right: 24px; }
+.mag-view .mag-count { bottom: 20px; color: rgba(255, 255, 255, .8); }
+@media (max-width: 767px) {
+  .mag-view .mag-nav.prev { left: calc(50% - 96px); }
+  .mag-view .mag-nav.next { right: calc(50% - 96px); }
+  .mag-view .mag-count { bottom: 30px; }
+}

@@ -331,3 +331,56 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
   });
   show();
 })();
+
+// ⑤ 잡지 크게 보기: + 버튼 → 한 면씩 크게. 버튼·좌우 밀기·방향키로 넘기고, X·Esc·바깥(어두운 곳) 클릭으로 닫는다
+(function () {
+  var view = document.getElementById('mag-view');
+  var zoom = document.querySelector('[data-mag-zoom]');
+  if (!view || !zoom) return;
+  var pages = Array.prototype.map.call(document.querySelectorAll('[data-flipbook] .mag-leaf img'), function (img) { return { src: img.getAttribute('src'), alt: img.getAttribute('alt') }; });
+  var labels = ['표지', '2면', '3면', '7면', '8면', '뒤표지'];
+  var startAt = { '표지': 0, '2 – 3면': 1, '7 – 8면': 3, '뒤표지': 5 }; // 지금 펼친 곳부터 보여 준다
+  var img = view.querySelector('[data-view-img]');
+  var prev = view.querySelector('[data-view-prev]');
+  var next = view.querySelector('[data-view-next]');
+  var count = view.querySelector('[data-view-count]');
+  var stage = view.querySelector('.mag-view-stage');
+  var at = 0;
+  function show() {
+    img.src = pages[at].src; img.alt = pages[at].alt;
+    prev.disabled = at === 0; next.disabled = at === pages.length - 1;
+    count.textContent = (labels[at] || '') + ' · ' + (at + 1) + ' / ' + pages.length;
+  }
+  function go(d) { var to = Math.max(0, Math.min(pages.length - 1, at + d)); if (to !== at) { at = to; show(); } }
+  function open() {
+    var cur = document.querySelector('[data-flip-count]');
+    at = (cur && startAt[cur.textContent] !== undefined) ? startAt[cur.textContent] : 0;
+    show();
+    view.hidden = false;
+    document.documentElement.classList.add('lp-lock');
+    view.querySelector('[data-close]').focus();
+  }
+  function close() {
+    view.hidden = true;
+    document.documentElement.classList.remove('lp-lock');
+    zoom.focus();
+  }
+  zoom.addEventListener('click', open);
+  prev.addEventListener('click', function () { go(-1); });
+  next.addEventListener('click', function () { go(1); });
+  view.addEventListener('click', function (e) { if (e.target === view || e.target.closest('[data-close]')) close(); });
+  var x0 = null;
+  stage.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+  stage.addEventListener('pointerup', function (e) {
+    if (x0 === null) return;
+    var dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  });
+  stage.addEventListener('pointercancel', function () { x0 = null; });
+  document.addEventListener('keydown', function (e) {
+    if (view.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') go(1);
+    else if (e.key === 'ArrowLeft') go(-1);
+  });
+})();
