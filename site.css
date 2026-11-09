@@ -400,6 +400,10 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .lp-ready { margin-top: -8px; font-size: 14px; line-height: 1.5; text-align: center; color: var(--text-secondary); }
 .lp-ready[hidden] { display: none; }
 .lp-pop.done { align-items: center; padding-top: 56px; text-align: center; }
+.lp-btn.line { background: var(--surface-default); color: var(--text-primary); border: 1px solid var(--border-default); }
+.lp-qr { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lp-qr img { width: 184px; height: 184px; padding: 20px; box-sizing: content-box; border: 1px solid var(--border-default); border-radius: 16px; background: #fff; }
+.lp-qr p { font-size: 15px; line-height: 1.5; color: var(--text-secondary); }
 .lp-pop.done .head { align-items: center; }
 .lp-pop.done .lp-count { align-self: center; }
 .lp-ok { width: 72px; height: 72px; border-radius: 50%; background: var(--surface-accent); display: grid; place-items: center; }

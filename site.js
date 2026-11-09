@@ -85,7 +85,51 @@
   timer = setInterval(tick, 1000);
 })();
 
-// 출시 알림 신청 팝업: [첫 호 무료로 시작하기] → ① 입력 → ② 완료
+// [첫 호 무료로 시작하기]: 휴대폰은 바로 웹앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
+var WEBAPP_URL = 'https://app.bogomagazine.co.kr';
+(function () {
+  var dialog = document.getElementById('start');
+  if (!dialog) return;
+  var ua = navigator.userAgent || '';
+  var isPhone = /Android|iPhone|iPod|iPad|Mobile/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var lastFocus = null;
+  function open(trigger) {
+    lastFocus = trigger || null;
+    dialog.hidden = false;
+    document.documentElement.classList.add('lp-lock');
+    setTimeout(function () { dialog.querySelector('[data-close]').focus(); }, 0);
+  }
+  function close() {
+    dialog.hidden = true;
+    document.documentElement.classList.remove('lp-lock');
+    if (location.hash === '#start' || location.hash === '#signup') { try { history.replaceState(null, '', location.pathname); } catch (e) { /* 무시 */ } }
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-start]').forEach(function (a) {
+    a.href = WEBAPP_URL;
+    a.addEventListener('click', function (e) {
+      if (isPhone) return; // 같은 창에서 바로 웹앱
+      e.preventDefault(); open(a);
+    });
+  });
+  dialog.addEventListener('click', function (e) {
+    if (e.target === dialog || e.target.closest('[data-close]')) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (dialog.hidden) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = Array.prototype.filter.call(dialog.querySelectorAll('button, a[href]'), function (el) { return el.offsetParent !== null; });
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
+  // 정책 페이지에서 ./#start (옛 주소 ./#signup 포함) 로 들어오면
+  if (location.hash === '#start' || location.hash === '#signup') {
+    if (isPhone) location.replace(WEBAPP_URL); else open();
+  }
+})();
+
+// (지금은 쓰지 않음 · 앱 출시 때 다시 쓰기) // 출시 알림 신청 팝업: [첫 호 무료로 시작하기] → ① 입력 → ② 완료
 // 저장은 앱 서버 신청 API 로 한다. 주소가 생기면 SIGNUP_API_URL 에 넣는다 (백엔드 요청: 저장 · 같은 번호 중복 방지 · 누적 수)
 var SIGNUP_API_URL = '';          // 예: 'https://api.bogomagazine.co.kr/launch-signups' (백엔드 확정 후)
 var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 때만 보여 준다 (기준 미정 · 제안값)
@@ -205,7 +249,6 @@ var SIGNUP_COUNT_MIN = 50;        // 누적 신청 수는 이 수를 넘었을 �
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
   });
   // 정책 페이지 등에서 ./#signup 으로 들어오면 바로 연다
-  if (location.hash === '#signup') open();
 })();
 
 // 정책 페이지: 지금 읽는 조항을 목차에 표시 + 모바일 표 → 카드 이름표
