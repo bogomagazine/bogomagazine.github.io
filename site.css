@@ -599,6 +599,10 @@ html.lp-lock { overflow: hidden; }
   .mag-view .mag-count { bottom: 30px; }
 }
 
+/* 버튼 아래 한 줄: PC는 선물 문구, 모바일은 바로 열린다는 예고 */
+.m-only { display: none; }
+@media (max-width: 767px) { .pc-only { display: none; } .m-only { display: inline; } }
+
 /* 모바일: 한 화면(약 790px)에 한 메시지가 다 보이게 (11/10)
    위 띠·상단바 버튼은 숨겨 화면을 넓히고, '첫 호 무료로 시작하기'는 첫 화면·무료 섹션 두 곳만 */
 @media (max-width: 767px) {
