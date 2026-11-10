@@ -671,6 +671,13 @@ html.lp-lock { overflow: hidden; }
   .lp-step .no { width: 44px; height: 44px; border-radius: 50%; background: var(--action-primary); color: #fff; font-size: 17px; display: grid; place-items: center; }
   .lp-step b { font-size: 17px; }
   .lp-step span { font-size: 14px; }
+  /* 3페이지 줄 간격 넓혀 읽기 쉽게 */
+  .lp-how .lp-eyebrow { line-height: 1.6; }
+  .lp-how .lp-h2 { line-height: 1.5; }
+  .lp-steps { gap: 12px; }
+  .lp-step { padding: 18px 20px; }
+  .lp-step b { line-height: 1.55; }
+  .lp-step span { line-height: 1.7; margin-top: 2px; }
   /* ④ 쓰는 가족: 카드 1장 = 한 페이지, 같은 제목 · 큰 앱 화면 · 한 줄 설명 */
   .lp-write .lp-in { padding-top: 0; padding-bottom: 0; gap: 0; }
   .lp-write .lp-in > .head { display: none; }
