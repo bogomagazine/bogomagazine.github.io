@@ -349,7 +349,7 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 /* 푸터 */
 .lp-foot { background: var(--surface-default); border-top: 1px solid var(--border-default); }
 .lp-foot .lp-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 40px; padding-bottom: 48px; }
-.lp-foot .lp-logo { font-size: 18px; gap: 8px; }
+.lp-foot .lp-logo { font-size: 18px; gap: 8px; font-weight: 700; letter-spacing: .02em; } /* 헤더와 같은 워드마크 (크기만 18) */
 .lp-foot .logo4 { width: 28px; height: 28px; }
 .lp-foot .lp-appicon { width: 28px; height: 28px; border-radius: 7px; }
 .lp-foot .fine { margin-top: 8px; font-size: 14px; line-height: 1.3; color: var(--text-secondary); }
