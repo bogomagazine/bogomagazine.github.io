@@ -507,6 +507,7 @@ html.lp-lock { overflow: hidden; }
   .lp-band a { display: none; }
   .lp-bar { height: 56px; }
   .lp-logo { font-size: 18px; gap: 8px; }
+  .lp-bar .lp-logo { font-size: 18px; } /* 모바일 헤더는 18 유지 (버튼과 한 줄) */
   .lp-bar .logo4 { width: 28px; height: 28px; }
   .lp-bar .lp-appicon { width: 32px; height: 32px; border-radius: 8px; }
   .lp-btn.bar { width: auto; height: 40px; padding: 0 14px; font-size: 15px; border-radius: 10px; }
