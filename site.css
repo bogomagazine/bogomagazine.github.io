@@ -716,5 +716,13 @@ html.lp-lock { overflow: hidden; }
 /* ④ 앱 화면: 아래에서 살짝 올라옴 */
 .phone-mock.reveal { transform: translateY(24px); transition-duration: 900ms; }
 .phone-mock.reveal.in { transform: none; }
+/* PC: 화면이 큰 만큼 더 잔잔하게 (이동 거리 절반, 간격 짧게) */
+@media (min-width: 768px) {
+  .lp-voice.reveal { transform: translateY(8px); transition-duration: 700ms; }
+  .lp-voice.reveal:nth-child(2) { transition-delay: 100ms; } .lp-voice.reveal:nth-child(3) { transition-delay: 200ms; }
+  .lp-voice.reveal:nth-child(4) { transition-delay: 300ms; } .lp-voice.reveal:nth-child(5) { transition-delay: 400ms; } .lp-voice.reveal:nth-child(6) { transition-delay: 500ms; }
+  .phone-mock.reveal { transform: translateY(12px); transition-duration: 700ms; }
+  .lp-hero h1 .hand { animation-duration: 1400ms; animation-delay: 400ms; }
+}
 @media (prefers-reduced-motion: reduce) { .lp-hero h1 .hand { animation: none; } .lp-voice.reveal, .phone-mock.reveal { transform: none; } }
 
