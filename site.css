@@ -696,3 +696,18 @@ html.lp-lock { overflow: hidden; }
   .lp-foot { background: #FFF8F3; }
 }
 
+/* 움직임 (11/10): 화면에 들어올 때 한 번만 · 동작 줄이기면 끔 */
+/* ② 공감 카드: 차례로 떠오름 */
+.lp-voice.reveal { transform: translateY(16px); transition-duration: 450ms; }
+.lp-voice.reveal.in { transform: none; }
+.lp-voice.reveal:nth-child(2) { transition-delay: 80ms; } .lp-voice.reveal:nth-child(3) { transition-delay: 160ms; }
+.lp-voice.reveal:nth-child(4) { transition-delay: 240ms; } .lp-voice.reveal:nth-child(5) { transition-delay: 320ms; } .lp-voice.reveal:nth-child(6) { transition-delay: 400ms; }
+@media (max-width: 767px) { .lp-voice.reveal:nth-child(2) { transition-delay: 100ms; } .lp-voice.reveal:nth-child(6) { transition-delay: 200ms; } }
+/* ① 손글씨 '보고 싶어서': 왼쪽에서 오른쪽으로 써지듯 한 번 */
+@keyframes lp-handwrite { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.lp-hero h1 .hand { animation: lp-handwrite 700ms 250ms var(--ease-out) both; }
+/* ④ 앱 화면: 아래에서 살짝 올라옴 */
+.phone-mock.reveal { transform: translateY(24px); transition-duration: 450ms; }
+.phone-mock.reveal.in { transform: none; }
+@media (prefers-reduced-motion: reduce) { .lp-hero h1 .hand { animation: none; } .lp-voice.reveal, .phone-mock.reveal { transform: none; } }
+
