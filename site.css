@@ -637,3 +637,62 @@ html.lp-lock { overflow: hidden; }
   .lp-dday .d { font-size: 56px; }
   .lp-dday .t { font-size: 20px; }
 }
+
+/* 모바일 5차-2 (Figma 2692:15385): 한 페이지 = 한 화면, 페이지 높이·간격 일정 */
+.m-head, .m-desc { display: none; }
+@media (max-width: 767px) {
+  .lp-sec { min-height: calc(100vh - 56px); min-height: calc(100svh - 56px); }
+  /* ① 첫 화면: 사진 먼저, 글 사이 간격 넉넉히 */
+  .lp-hero { background: linear-gradient(#fff, #FFF8F3); }
+  .lp-hero .lp-in { gap: 28px; padding-top: 24px; padding-bottom: 24px; }
+  .lp-hero-art { order: -1; padding: 0; }
+  .lp-hero-art .flower, .lp-hero-art .heart { display: none; }
+  .lp-hero-art .photo { border-radius: 24px; }
+  .lp-hero-copy { gap: 24px; }
+  /* ② 공감: 기존 카드 디자인 3장 (할아버지 · 딸 · 손자) */
+  .lp-why .lp-in { gap: 12px; padding-top: 36px; padding-bottom: 36px; }
+  .lp-why .head { gap: 4px; }
+  .lp-why .head p { font-size: 15px; }
+  .lp-why .lp-h2 { font-size: 26px; }
+  .lp-voice:nth-child(3), .lp-voice:nth-child(4), .lp-voice:nth-child(5) { display: none; }
+  .lp-voice { min-height: 196px; justify-content: space-between; padding: 20px 80px 20px 20px; }
+  .lp-voice .say p { display: block; font-size: 15px; }
+  .lp-voice q { font-size: 20px; }
+  .lp-voice .face { width: 60px; height: 60px; top: 16px; right: 16px; margin-top: 0; }
+  /* ③ 과정: 작은 로고 + 가운데 제목 + 주황 번호 원 */
+  .lp-how { background: #fff; }
+  .lp-how .lp-in { gap: 20px; }
+  .lp-how .stage { height: auto; }
+  .lp-how .logo4 { width: 64px; max-width: 64px; height: 64px; }
+  .lp-how .copy { gap: 20px; }
+  .lp-how .copy .head { align-items: center; text-align: center; gap: 8px; }
+  .lp-how .lp-h2 { font-size: 28px; }
+  .lp-step { background: #FFF8F3; padding: 16px 20px; border-radius: 16px; }
+  .lp-step .no { width: 44px; height: 44px; border-radius: 50%; background: var(--action-primary); color: #fff; font-size: 17px; display: grid; place-items: center; }
+  .lp-step b { font-size: 17px; }
+  .lp-step span { font-size: 14px; }
+  /* ④ 쓰는 가족: 카드 1장 = 한 페이지, 같은 제목 · 큰 앱 화면 · 한 줄 설명 */
+  .lp-write .lp-in { padding-top: 0; padding-bottom: 0; gap: 0; }
+  .lp-write .lp-in > .head { display: none; }
+  .lp-cards { gap: 0; }
+  .lp-card, .lp-card.accent { width: 100%; max-width: none; height: auto; min-height: calc(100vh - 56px); min-height: calc(100svh - 56px); padding: 40px 0; border-radius: 0; background: transparent; justify-content: center; gap: 16px; overflow: visible; }
+  .lp-card .m-head { display: flex; flex-direction: column; gap: 8px; order: 0; margin-bottom: 8px; }
+  .lp-card .m-head .lp-h2 { font-size: 28px; }
+  .lp-card .pic { order: 1; flex: none; height: 440px; max-height: 52svh; background: #FFE9DF; border-radius: 24px; }
+  .lp-card.accent .pic { background: #FFF3D1; }
+  .lp-card .phone-mock { top: 24px; }
+  .lp-card .copy { order: 2; gap: 6px; }
+  .lp-card .lp-tag, .lp-card .lp-checks { display: none; }
+  .lp-card h3 { font-size: 20px; line-height: 1.4; }
+  .lp-card h3 br, .lp-paper h3 br { display: none; }
+  .m-desc { display: block; font-size: 15px; line-height: 1.5; color: var(--text-secondary); }
+  /* ⑤ 받는 가족: 잡지 카드 위, 한 줄 설명 아래 */
+  .lp-read .lp-in { gap: 16px; padding-top: 40px; padding-bottom: 40px; }
+  .lp-paper { width: 100%; background: transparent; padding: 0; border-radius: 0; display: flex; flex-direction: column; gap: 16px; overflow: visible; }
+  .lp-paper .mag { order: 1; background: #FFD9C7; border-radius: 24px; margin-top: 0; padding: 20px 0 64px; }
+  .lp-paper .copy { order: 2; gap: 6px; }
+  .lp-paper .lp-tag, .lp-paper .lp-checks { display: none; }
+  .lp-paper h3 { font-size: 20px; line-height: 1.4; }
+  .lp-foot { background: #FFF8F3; }
+}
+
