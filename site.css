@@ -183,6 +183,7 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .lp-sub { font-size: 15px; line-height: 1.3; color: var(--text-secondary); }
 
 /* 로고: ㅂ·ㄱ·ㅈ·ㅈ 종이 조각 4장 (LogoFinal). 조각 그림자가 밖으로 살짝 나와서 그림이 조각보다 조금 크다 */
+.lp-appicon { display: block; width: 40px; height: 40px; flex: none; border-radius: 10px; }
 .logo4 { position: relative; width: 40px; height: 40px; flex: none; }
 .logo4 img { position: absolute; width: 48.54%; height: auto; max-width: none; }
 .logo4 img:nth-child(1) { left: -.92%; top: -.46%; }
@@ -504,6 +505,7 @@ html.lp-lock { overflow: hidden; }
   .lp-bar { height: 56px; }
   .lp-logo { font-size: 18px; gap: 8px; }
   .lp-bar .logo4 { width: 28px; height: 28px; }
+  .lp-bar .lp-appicon { width: 32px; height: 32px; border-radius: 8px; }
   .lp-btn.bar { width: auto; height: 40px; padding: 0 14px; font-size: 15px; border-radius: 10px; }
   .lp-h2, .lp-how .lp-h2, .lp-faq .lp-h2 { font-size: 30px; }
   .lp-offer .lp-h2 { font-size: 36px; }
