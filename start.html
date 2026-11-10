@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>보고잡지 시작하기</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FF7A3D">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<script>
+  // 랜딩 PC 팝업 QR 이 가리키는 주소. 찍은 기기에 따라 나눈다 (11/11): 아이폰·아이패드=App Store 앱, 그 밖=웹앱
+  (function () {
+    var ua = navigator.userAgent || '';
+    var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    location.replace(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : 'https://app.bogomagazine.co.kr');
+  })();
+</script>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:48px 16px;line-height:1.7">
+  <p>보고잡지로 이동하고 있어요.</p>
+  <p><a href="https://apps.apple.com/kr/app/id6827039758">아이폰 · App Store에서 받기</a></p>
+  <p><a href="https://app.bogomagazine.co.kr">안드로이드 · 바로 열기</a></p>
+</body>
+</html>

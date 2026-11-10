@@ -85,13 +85,18 @@
   timer = setInterval(tick, 1000);
 })();
 
-// [첫 호 무료로 시작하기]: 휴대폰은 바로 웹앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
+// [첫 호 무료로 시작하기]: 아이폰·아이패드는 App Store 앱으로, 안드로이드는 바로 웹앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
+// (11/11 결정) iOS 는 앱, 안드로이드는 웹앱. PC 팝업 QR 은 /start (start.html) 가 찍은 기기에 따라 다시 나눈다.
 var WEBAPP_URL = 'https://app.bogomagazine.co.kr';
+var APPSTORE_URL = 'https://apps.apple.com/kr/app/id6827039758';
 (function () {
   var dialog = document.getElementById('start');
   if (!dialog) return;
   var ua = navigator.userAgent || '';
-  var isPhone = /Android|iPhone|iPod|iPad|Mobile/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1); // iPadOS 는 Mac 으로 보고해서 터치로 구분
+  var isPhone = isIOS || /Android|Mobile/i.test(ua);
+  var MOBILE_URL = isIOS ? APPSTORE_URL : WEBAPP_URL;
+  if (isIOS) document.querySelectorAll('.lp-sub.m-only').forEach(function (s) { s.textContent = 'App Store에서 앱을 받아요'; });
   var lastFocus = null;
   function open(trigger) {
     lastFocus = trigger || null;
@@ -106,9 +111,9 @@ var WEBAPP_URL = 'https://app.bogomagazine.co.kr';
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   document.querySelectorAll('[data-start]').forEach(function (a) {
-    a.href = WEBAPP_URL;
+    a.href = isPhone ? MOBILE_URL : WEBAPP_URL;
     a.addEventListener('click', function (e) {
-      if (isPhone) return; // 같은 창에서 바로 웹앱
+      if (isPhone) return; // 같은 창에서 바로 이동 (아이폰=App Store, 안드로이드=웹앱)
       e.preventDefault(); open(a);
     });
   });
@@ -125,7 +130,7 @@ var WEBAPP_URL = 'https://app.bogomagazine.co.kr';
   });
   // 정책 페이지에서 ./#start (옛 주소 ./#signup 포함) 로 들어오면
   if (location.hash === '#start' || location.hash === '#signup') {
-    if (isPhone) location.replace(WEBAPP_URL); else open();
+    if (isPhone) location.replace(MOBILE_URL); else open();
   }
 })();
 
