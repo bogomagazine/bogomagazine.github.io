@@ -727,55 +727,53 @@ html.lp-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .lp-hero h1 .hand { animation: none; } .lp-voice.reveal, .phone-mock.reveal { transform: none; } }
 
 
-/* ===== 소개 커닝페이퍼 (share.html, 11/12). 정책 페이지와 같은 머리말·푸터·폭, 본문은 760 한 줄 ===== */
+/* ===== 소개 가이드 (share.html, 11/12). 정책 페이지와 같은 머리말·푸터, 본문은 760 한 줄 ===== */
 .share .lp-in { max-width: 760px; }
 .share-head { display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; }
 .share-head h1 { font-size: 40px; font-weight: 900; line-height: 1.3; letter-spacing: -.02em; }
 .share-head .lead { margin: 0; font-size: 18px; line-height: 1.7; color: var(--text-secondary); }
-.share-sec { padding-top: 56px; display: flex; flex-direction: column; gap: 16px; }
+.share-sec { padding-top: 64px; display: flex; flex-direction: column; gap: 16px; }
 .share-sec h2 { font-size: 28px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
-.share-sec .hint { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
-.share-sec .hint b { color: var(--text-primary); }
-.share-what { display: grid; grid-template-columns: 1fr 140px; gap: 24px; align-items: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 28px 28px 28px 32px; }
-.share-what img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(42, 39, 36, .12); }
+.share-sec .hint { font-size: 16px; line-height: 1.6; color: var(--text-secondary); margin-top: -6px; }
+
+/* 보고잡지란?: 글(왼쪽, 줄어들 수 있음) + 표지(오른쪽, 고정 폭). 표지가 상자를 넘지 않게 min-width: 0 */
+.share-what { display: grid; grid-template-columns: minmax(0, 1fr) 128px; gap: 28px; align-items: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 28px; overflow: hidden; }
+.share-what img { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(42, 39, 36, .12); }
 .share-what .big { font-size: 20px; font-weight: 600; line-height: 1.55; }
 .share-what .big em { font-style: normal; font-weight: 800; color: var(--text-brand); }
-.share-steps { list-style: none; margin-top: 18px !important; display: flex; flex-wrap: nowrap; gap: 4px; counter-reset: step; white-space: nowrap; }
-.share-steps li { counter-increment: step; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--text-secondary); background: var(--surface-default); border-radius: 999px; padding: 5px 10px 5px 5px; }
-.share-steps li::before { content: counter(step); width: 20px; height: 20px; border-radius: 50%; background: var(--action-primary); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
-.share-steps li + li { margin-left: 16px; position: relative; }
-.share-steps li + li::after { content: "→"; position: absolute; left: -15px; color: var(--text-4); font-weight: 400; }
-.share-who { display: flex; flex-direction: column; gap: 24px; }
-.share-who .tag { display: inline-block; font-size: 14px; font-weight: 700; color: var(--text-brand); background: var(--surface-accent); border-radius: 999px; padding: 4px 12px; margin-bottom: 10px; }
-.share-list { display: flex; flex-direction: column; gap: 10px; }
-.share-list li { position: relative; padding-left: 22px; font-size: 17px; line-height: 1.6; }
-.share-list li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: var(--action-primary); }
+.share-steps { list-style: none; margin-top: 16px !important; display: flex; flex-direction: column; gap: 6px; counter-reset: step; }
+.share-steps li { counter-increment: step; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+.share-steps li::before { content: counter(step); width: 20px; height: 20px; border-radius: 50%; background: var(--action-primary); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; flex: none; }
+
+/* 누구에게: 대상 3개를 카드로 나란히 (모바일은 세로) */
+.share-who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.share-who .card { margin: 0; padding: 20px; border: 1px solid var(--border-default); border-radius: 16px; box-shadow: none; display: flex; flex-direction: column; gap: 14px; }
+.share-who .tag { align-self: flex-start; font-size: 14px; font-weight: 700; color: var(--text-brand); background: var(--surface-accent); border-radius: 999px; padding: 4px 12px; }
+.share-who ul { display: flex; flex-direction: column; gap: 12px; }
+.share-who li { font-size: 16px; line-height: 1.5; padding-left: 14px; position: relative; }
+.share-who li::before { content: ""; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--action-primary); }
+
 .share-copies { display: flex; flex-direction: column; gap: 16px; }
 .share-copy { border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
 .share-copy h3 { font-size: 16px; font-weight: 700; color: var(--text-brand); margin: 0; }
 .share-copy pre { margin: 0; white-space: pre-wrap; word-break: keep-all; font: inherit; font-size: 16px; line-height: 1.7; background: var(--surface-subtle); border-radius: 12px; padding: 18px 20px; }
 .share-copy .lp-btn { align-self: flex-start; height: 48px; min-width: 140px; }
 .share-imgs { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; align-items: end; }
-.share-imgs figure { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.share-imgs figure { margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .share-imgs img { width: 100%; height: auto; border: 1px solid var(--border-default); border-radius: 12px; }
-.share-imgs .lp-btn { height: 44px; font-size: 15px; }
+.share-imgs .btns { display: flex; gap: 8px; }
+.share-imgs .lp-btn { flex: 1; height: 44px; padding: 0 10px; font-size: 15px; }
 .share-end { padding-bottom: 8px; }
-.share-end .small { font-size: 15px; color: var(--text-secondary); }
 .share-end .thanks { font-size: 20px; font-weight: 700; }
 @media (max-width: 767px) {
   .share-head h1 { font-size: 30px; }
   .share-head .lead { font-size: 16px; }
-  .share-sec { padding-top: 44px; }
+  .share-sec { padding-top: 48px; }
   .share-sec h2 { font-size: 23px; }
-  .share-what { grid-template-columns: 1fr 88px; padding: 20px; gap: 16px; align-items: start; }
-  .share-what .txt { display: contents; }
-  .share-what img { width: 88px; grid-column: 2; grid-row: 1; }
-  .share-what .big { font-size: 17px; grid-column: 1; grid-row: 1; }
+  .share-what { grid-template-columns: minmax(0, 1fr) 84px; padding: 20px; gap: 16px; align-items: start; }
+  .share-what .big { font-size: 17px; }
   .share-what .big br:first-child { display: none; }
-  .share-steps { grid-column: 1 / -1; margin-top: 0 !important; flex-direction: column; align-items: flex-start; }
-  .share-steps li + li { margin-left: 0; }
-  .share-steps li + li::after { display: none; }
-  .share-who .share-list li { font-size: 16px; }
+  .share-who { grid-template-columns: 1fr; }
   .share-imgs { grid-template-columns: 1fr; }
   .share-copy { padding: 18px; }
   .share-copy pre { font-size: 15px; padding: 16px; }
