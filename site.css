@@ -732,14 +732,14 @@ html.lp-lock { overflow: hidden; }
 .share-head { display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; }
 .share-head h1 { font-size: 40px; font-weight: 900; line-height: 1.3; letter-spacing: -.02em; }
 .share-head .lead { margin: 0; font-size: 18px; line-height: 1.85; color: var(--text-secondary); }
-.share-sec { padding-top: 64px; display: flex; flex-direction: column; gap: 16px; }
+.share-sec { padding-top: 96px; display: flex; flex-direction: column; gap: 16px; }
 .share-sec h2 { font-size: 28px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
 .share-sec .hint { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-top: -6px; }
 
 /* 보고잡지란?: 글(왼쪽, 줄어들 수 있음) + 표지(오른쪽, 고정 폭). 표지가 상자를 넘지 않게 min-width: 0 */
-.share-what { display: flex; flex-direction: column-reverse; gap: 20px; align-items: center; text-align: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 28px; overflow: hidden; }
-.share-what img { width: 120px; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(42, 39, 36, .12); }
-.share-what .big { font-size: 20px; font-weight: 600; line-height: 1.8; }
+.share-what { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px; align-items: center; }
+.share-what img { order: -1; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(42, 39, 36, .12); }
+.share-what .big { font-size: 24px; font-weight: 700; line-height: 1.7; letter-spacing: -.02em; }
 .share-what .big em { font-style: normal; font-weight: 800; color: var(--text-brand); }
 .share-steps { list-style: none; margin-top: 16px !important; display: flex; flex-direction: column; gap: 6px; counter-reset: step; }
 .share-steps li { counter-increment: step; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--text-secondary); }
@@ -768,14 +768,21 @@ html.lp-lock { overflow: hidden; }
 @media (max-width: 767px) {
   .share-head h1 { font-size: 30px; }
   .share-head .lead { font-size: 16px; }
-  .share-sec { padding-top: 48px; }
+  .share-sec { padding-top: 72px; }
   .share-sec h2 { font-size: 23px; }
-  .share-what { padding: 24px 20px; }
-  .share-what img { width: 96px; }
-  .share-what .big { font-size: 17px; }
+  .share-what { grid-template-columns: 1fr; gap: 24px; }
+  .share-what img { width: 72%; justify-self: center; }
+  .share-voices { grid-template-columns: 1fr !important; }
+  .share-what .big { font-size: 21px; }
   .share-who { grid-template-columns: 1fr; }
   .share-imgs { grid-template-columns: 1fr; }
   .share-copy { padding: 18px; }
   .share-copy pre { font-size: 15px; padding: 16px; }
   .share-copy .lp-btn { align-self: stretch; }
 }
+.share-voices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.share-voices .lp-voice { height: auto; min-height: 240px; padding: 20px 20px 22px; gap: 28px; }
+.share-voices .lp-voice .who { font-size: 13px; }
+.share-voices .lp-voice q { font-size: 20px; padding-left: 13px; text-indent: -9px; }
+.share-voices .lp-voice .say p { font-size: 15px; }
+.share-voices .lp-voice .face { left: auto; right: 12px; top: auto; bottom: 108px; width: 64px; height: 64px; opacity: .95; }
