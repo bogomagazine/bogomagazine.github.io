@@ -758,11 +758,6 @@ html.lp-lock { overflow: hidden; }
 .share-copy h3 { font-size: 16px; font-weight: 700; color: var(--text-brand); margin: 0; }
 .share-copy pre { margin: 0; white-space: pre-wrap; word-break: keep-all; font: inherit; font-size: 16px; line-height: 1.95; background: var(--surface-subtle); border-radius: 12px; padding: 18px 20px; }
 .share-copy .lp-btn { align-self: flex-start; height: 48px; min-width: 140px; }
-.share-imgs { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; align-items: end; }
-.share-imgs figure { margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-.share-imgs img { width: 100%; height: auto; border: 1px solid var(--border-default); border-radius: 12px; }
-.share-imgs .btns { display: flex; gap: 8px; }
-.share-imgs .lp-btn { flex: 1; height: 44px; padding: 0 10px; font-size: 15px; }
 .share-end { padding-bottom: 8px; }
 .share-end .thanks { font-size: 20px; font-weight: 700; }
 @media (max-width: 767px) {
@@ -772,17 +767,17 @@ html.lp-lock { overflow: hidden; }
   .share-sec h2 { font-size: 23px; }
   .share-what { grid-template-columns: 1fr; gap: 24px; }
   .share-what img { width: 72%; justify-self: center; }
-  .share-voices { grid-template-columns: 1fr !important; }
   .share-what .big { font-size: 21px; }
-  .share-who { grid-template-columns: 1fr; }
-  .share-imgs { grid-template-columns: 1fr; }
+  .share-voices { grid-template-columns: 1fr !important; }
   .share-copy { padding: 18px; }
   .share-copy pre { font-size: 15px; padding: 16px; }
   .share-copy .lp-btn { align-self: stretch; }
 }
+/* 누구에게: 랜딩 공감 카드를 빌려 씀. 랜딩의 화면 크기별 규칙을 덮어서 이름표·얼굴(위)과 말(아래)이 겹치지 않게 */
 .share-voices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.share-voices .lp-voice { height: auto; min-height: 240px; padding: 20px 20px 22px; gap: 28px; }
-.share-voices .lp-voice .who { font-size: 13px; }
-.share-voices .lp-voice q { font-size: 20px; padding-left: 13px; text-indent: -9px; }
-.share-voices .lp-voice .say p { font-size: 15px; }
-.share-voices .lp-voice .face { left: auto; right: 12px; top: auto; bottom: 108px; width: 64px; height: 64px; opacity: .95; }
+.share .share-voices .lp-voice { height: auto; min-height: 0; padding: 20px; gap: 0; justify-content: flex-start; }
+.share .share-voices .lp-voice .who { font-size: 13px; max-width: calc(100% - 64px); }
+.share .share-voices .lp-voice .face { left: auto; right: 16px; top: 14px; margin-top: 0; width: 52px; height: 52px; }
+.share .share-voices .lp-voice .say { margin-top: 28px; gap: 8px; }
+.share .share-voices .lp-voice q { font-size: 19px; line-height: 1.5; padding-left: 0; text-indent: 0; }
+.share .share-voices .lp-voice .say p { display: block; font-size: 15px; line-height: 1.6; }

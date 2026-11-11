@@ -57,7 +57,7 @@
     <p class="hint">어떤 말로 소개할지 고민된다면, 아래 문구를 그대로 복사해서 보내 보세요.</p>
     <div class="share-copies">
       <article class="share-copy">
-        <h3>단톡방 · 사내 공지</h3>
+        <h3>단톡방 공지</h3>
         <pre>📮 별일 없는 우리 하루가, 제일 보고 싶은 사람이 있어요
 
 가족이 휴대폰으로 올린 사진과 글을 모아
@@ -76,10 +76,10 @@ bogomagazine.co.kr/start</pre>
       </article>
       <article class="share-copy">
         <h3>인스타그램 · 스레드</h3>
-        <pre>별일 없는 우리 하루가, 제일 보고 싶은 사람이 있어요.
+        <pre>별일 없는 우리 하루가, 제일 보고 싶은 사람이 있어요 🧡
 
 단톡방에만 쌓이던 사진과 이야기를
-2주에 한 번, 종이 잡지로 할머니·할아버지 댁에 보내 드려요.
+2주에 한 번, 종이 잡지로 할머니·할아버지 댁에 보내 드려요 📮
 
 머리맡에 두고 몇 번이고 펼쳐 보실 우리 가족의 잡지.
 
@@ -90,20 +90,6 @@ bogomagazine.co.kr/start</pre>
     </div>
   </section>
 
-  <section class="share-sec" aria-labelledby="img">
-    <h2 id="img">이미지도 함께 보내기</h2>
-    <p class="hint">[복사하기]를 누른 뒤 카톡 대화창에 붙여 넣으면 돼요. 복사가 안 되면 [저장하기]를 눌러 주세요.</p>
-    <div class="share-imgs">
-      <figure>
-        <img src="assets/landing/hero-photo.webp" width="1224" height="816" alt="귤을 까며 함께 웃는 할머니와 손녀">
-        <div class="btns"><button class="lp-btn" type="button" data-copy-img>복사하기</button><a class="lp-btn line" href="assets/landing/hero-photo.webp" download="보고잡지_할머니와손녀.webp">저장하기</a></div>
-      </figure>
-      <figure>
-        <img src="assets/landing/cover-01.png" width="595" height="842" alt="보고잡지 제1호 앞표지 예시">
-        <div class="btns"><button class="lp-btn" type="button" data-copy-img>복사하기</button><a class="lp-btn line" href="assets/landing/cover-01.png" download="보고잡지_표지예시.png">저장하기</a></div>
-      </figure>
-    </div>
-  </section>
 
   <section class="share-sec share-end">
     <p class="thanks">소개해 주셔서 감사해요 🙇</p>
@@ -143,27 +129,6 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
   });
 });
 
-// [복사하기] 이미지: 클립보드는 PNG 만 받는 브라우저가 많아서 캔버스로 PNG 로 바꿔 넣는다
-//  아이폰 사파리는 클릭 순간에 ClipboardItem 을 만들어야 해서 PNG 는 Promise 로 넘긴다
-//  안 되는 브라우저(카톡 안 브라우저 등)는 '저장하기를 눌러 주세요'로 안내
-function toPng(img) {
-  return new Promise(function (resolve, reject) {
-    var c = document.createElement('canvas');
-    c.width = img.naturalWidth; c.height = img.naturalHeight;
-    c.getContext('2d').drawImage(img, 0, 0);
-    c.toBlob(function (b) { b ? resolve(b) : reject(); }, 'image/png');
-  });
-}
-document.querySelectorAll('[data-copy-img]').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var img = btn.closest('figure').querySelector('img');
-    if (!(navigator.clipboard && navigator.clipboard.write && window.ClipboardItem && window.isSecureContext)) { flash(btn, '저장하기를 눌러 주세요'); return; }
-    try {
-      navigator.clipboard.write([new ClipboardItem({ 'image/png': toPng(img) })])
-        .then(function () { flash(btn, '복사했어요'); }, function () { flash(btn, '저장하기를 눌러 주세요'); });
-    } catch (e) { flash(btn, '저장하기를 눌러 주세요'); }
-  });
-});
 </script>
 </body>
 </html>
