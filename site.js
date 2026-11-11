@@ -50,11 +50,11 @@
   });
 })();
 
-// 첫 호 무료 D-day: 띠와 ⑥ 카드가 같은 값. 마감 11/13 23:59:59 KST, 1초마다 갱신, 마감 후 "이벤트가 끝났어요"
+// 첫 호 무료 D-day: 띠와 ⑥ 카드가 같은 값. 마감 11/15 23:59:59 KST (11/12 11/13→11/15 연장), 1초마다 갱신, 마감 후 "이벤트가 끝났어요"
 (function () {
   var labels = document.querySelectorAll('[data-dday-label]');
   if (!labels.length) return;
-  var DEADLINE = Date.UTC(2026, 10, 13, 14, 59, 59); // = 2026-11-13 23:59:59 KST
+  var DEADLINE = Date.UTC(2026, 10, 15, 14, 59, 59); // = 2026-11-15 23:59:59 KST
   var KST = 9 * 3600 * 1000, DAY = 86400000;
   var band = document.querySelector('[data-dday-band]');
   var card = document.querySelector('[data-dday-card]');
