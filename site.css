@@ -726,3 +726,52 @@ html.lp-lock { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) { .lp-hero h1 .hand { animation: none; } .lp-voice.reveal, .phone-mock.reveal { transform: none; } }
 
+
+/* ===== 소개 커닝페이퍼 (share.html, 11/12). 정책 페이지와 같은 머리말·푸터·폭, 본문은 760 한 줄 ===== */
+.share .lp-in { max-width: 760px; }
+.share-head { display: flex; flex-direction: column; gap: 16px; padding-bottom: 24px; }
+.share-head h1 { font-size: 40px; font-weight: 900; line-height: 1.3; letter-spacing: -.02em; }
+.share-head .lead { margin: 0; font-size: 18px; line-height: 1.7; color: var(--text-secondary); }
+.share-sec { padding-top: 56px; display: flex; flex-direction: column; gap: 16px; }
+.share-sec h2 { font-size: 28px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
+.share-sec .hint { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
+.share-sec .hint b { color: var(--text-primary); }
+.share-what { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 32px; }
+.share-what img { width: 200px; height: auto; border-radius: 6px; box-shadow: var(--shadow); }
+.share-what .big { font-size: 19px; font-weight: 600; line-height: 1.6; }
+.share-steps { list-style: none; margin-top: 20px !important; display: flex; flex-direction: column; gap: 10px; }
+.share-steps li { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 600; }
+.share-steps b { width: 28px; height: 28px; border-radius: 50%; background: var(--action-primary); color: #fff; display: grid; place-items: center; font-size: 15px; flex: none; }
+.share-list { display: flex; flex-direction: column; gap: 10px; }
+.share-list li { position: relative; padding-left: 22px; font-size: 17px; line-height: 1.6; }
+.share-list li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: var(--action-primary); }
+.share-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.share-points > div { border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; }
+.share-points b { display: block; font-size: 18px; margin-bottom: 8px; }
+.share-points p { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
+.share-copies { display: flex; flex-direction: column; gap: 16px; }
+.share-copy { border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.share-copy h3 { font-size: 16px; font-weight: 700; color: var(--text-brand); margin: 0; }
+.share-copy pre { margin: 0; white-space: pre-wrap; word-break: keep-all; font: inherit; font-size: 16px; line-height: 1.7; background: var(--surface-subtle); border-radius: 12px; padding: 18px 20px; }
+.share-copy .lp-btn { align-self: flex-start; height: 48px; min-width: 140px; }
+.share-imgs { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; align-items: end; }
+.share-imgs figure { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.share-imgs img { width: 100%; height: auto; border: 1px solid var(--border-default); border-radius: 12px; }
+.share-imgs .lp-btn { height: 44px; font-size: 15px; }
+.share-end { padding-bottom: 8px; }
+.share-end .small { font-size: 15px; color: var(--text-secondary); }
+.share-end .thanks { font-size: 20px; font-weight: 700; }
+@media (max-width: 767px) {
+  .share-head h1 { font-size: 30px; }
+  .share-head .lead { font-size: 16px; }
+  .share-sec { padding-top: 44px; }
+  .share-sec h2 { font-size: 23px; }
+  .share-what { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+  .share-what img { width: 160px; justify-self: center; }
+  .share-what .big { font-size: 17px; }
+  .share-what .big br, .share-head .lead br { display: none; }
+  .share-points, .share-imgs { grid-template-columns: 1fr; }
+  .share-copy { padding: 18px; }
+  .share-copy pre { font-size: 15px; padding: 16px; }
+  .share-copy .lp-btn { align-self: stretch; }
+}
