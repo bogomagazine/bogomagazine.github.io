@@ -736,19 +736,20 @@ html.lp-lock { overflow: hidden; }
 .share-sec h2 { font-size: 28px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; }
 .share-sec .hint { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
 .share-sec .hint b { color: var(--text-primary); }
-.share-what { display: grid; grid-template-columns: 1fr 200px; gap: 32px; align-items: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 32px; }
-.share-what img { width: 200px; height: auto; border-radius: 6px; box-shadow: var(--shadow); }
-.share-what .big { font-size: 19px; font-weight: 600; line-height: 1.6; }
-.share-steps { list-style: none; margin-top: 20px !important; display: flex; flex-direction: column; gap: 10px; }
-.share-steps li { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 600; }
-.share-steps b { width: 28px; height: 28px; border-radius: 50%; background: var(--action-primary); color: #fff; display: grid; place-items: center; font-size: 15px; flex: none; }
+.share-what { display: grid; grid-template-columns: 1fr 140px; gap: 24px; align-items: center; background: var(--surface-accent); border-radius: var(--radius-xl); padding: 28px 28px 28px 32px; }
+.share-what img { width: 140px; height: auto; border-radius: 4px; box-shadow: 0 4px 16px rgba(42, 39, 36, .12); }
+.share-what .big { font-size: 20px; font-weight: 600; line-height: 1.55; }
+.share-what .big em { font-style: normal; font-weight: 800; color: var(--text-brand); }
+.share-steps { list-style: none; margin-top: 18px !important; display: flex; flex-wrap: nowrap; gap: 4px; counter-reset: step; white-space: nowrap; }
+.share-steps li { counter-increment: step; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--text-secondary); background: var(--surface-default); border-radius: 999px; padding: 5px 10px 5px 5px; }
+.share-steps li::before { content: counter(step); width: 20px; height: 20px; border-radius: 50%; background: var(--action-primary); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+.share-steps li + li { margin-left: 16px; position: relative; }
+.share-steps li + li::after { content: "→"; position: absolute; left: -15px; color: var(--text-4); font-weight: 400; }
+.share-who { display: flex; flex-direction: column; gap: 24px; }
+.share-who .tag { display: inline-block; font-size: 14px; font-weight: 700; color: var(--text-brand); background: var(--surface-accent); border-radius: 999px; padding: 4px 12px; margin-bottom: 10px; }
 .share-list { display: flex; flex-direction: column; gap: 10px; }
 .share-list li { position: relative; padding-left: 22px; font-size: 17px; line-height: 1.6; }
 .share-list li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: var(--action-primary); }
-.share-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.share-points > div { border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; }
-.share-points b { display: block; font-size: 18px; margin-bottom: 8px; }
-.share-points p { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
 .share-copies { display: flex; flex-direction: column; gap: 16px; }
 .share-copy { border: 1px solid var(--border-default); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
 .share-copy h3 { font-size: 16px; font-weight: 700; color: var(--text-brand); margin: 0; }
@@ -766,11 +767,16 @@ html.lp-lock { overflow: hidden; }
   .share-head .lead { font-size: 16px; }
   .share-sec { padding-top: 44px; }
   .share-sec h2 { font-size: 23px; }
-  .share-what { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
-  .share-what img { width: 160px; justify-self: center; }
-  .share-what .big { font-size: 17px; }
-  .share-what .big br, .share-head .lead br { display: none; }
-  .share-points, .share-imgs { grid-template-columns: 1fr; }
+  .share-what { grid-template-columns: 1fr 88px; padding: 20px; gap: 16px; align-items: start; }
+  .share-what .txt { display: contents; }
+  .share-what img { width: 88px; grid-column: 2; grid-row: 1; }
+  .share-what .big { font-size: 17px; grid-column: 1; grid-row: 1; }
+  .share-what .big br:first-child { display: none; }
+  .share-steps { grid-column: 1 / -1; margin-top: 0 !important; flex-direction: column; align-items: flex-start; }
+  .share-steps li + li { margin-left: 0; }
+  .share-steps li + li::after { display: none; }
+  .share-who .share-list li { font-size: 16px; }
+  .share-imgs { grid-template-columns: 1fr; }
   .share-copy { padding: 18px; }
   .share-copy pre { font-size: 15px; padding: 16px; }
   .share-copy .lp-btn { align-self: stretch; }
