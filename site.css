@@ -776,8 +776,9 @@ html.lp-lock { overflow: hidden; }
 /* 누구에게: 랜딩 공감 카드를 빌려 씀. 랜딩의 화면 크기별 규칙을 덮어서 이름표·얼굴(위)과 말(아래)이 겹치지 않게 */
 .share-voices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .share .share-voices .lp-voice { height: auto; min-height: 0; padding: 20px; gap: 0; justify-content: flex-start; }
-.share .share-voices .lp-voice .who { font-size: 13px; max-width: calc(100% - 64px); }
-.share .share-voices .lp-voice .face { left: auto; right: 16px; top: 14px; margin-top: 0; width: 52px; height: 52px; }
-.share .share-voices .lp-voice .say { margin-top: 28px; gap: 8px; }
+.share .share-voices .lp-voice .who { display: inline-flex; align-items: center; max-width: 100%; white-space: nowrap; font-size: 13px; line-height: 1; padding: 7px 12px; }
+.share .share-voices .lp-voice .face { left: auto; right: 16px; top: 60px; margin-top: 0; width: 52px; height: 52px; }
+.share .share-voices .lp-voice .say { margin-top: 20px; gap: 8px; }
+.share .share-voices .lp-voice q { padding-right: 60px !important; }
 .share .share-voices .lp-voice q { font-size: 19px; line-height: 1.5; padding-left: 0; text-indent: 0; }
 .share .share-voices .lp-voice .say p { display: block; font-size: 15px; line-height: 1.6; }
