@@ -280,7 +280,7 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .phone-mock .feed::-webkit-scrollbar { display: none; }
 .phone-mock .feed img { display: block; width: 100%; height: auto; }
 .phone-mock.q .feed { top: 72.77px; padding-bottom: 62px; }
-.phone-mock .top { top: 0; }
+.phone-mock .top { top: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; } /* 머리말용 .top(흐림 효과)이 폰 상태바 이미지에 잘못 걸려 스크롤마다 다시 흐림 계산 → 렉. 끈다 */
 .phone-mock .bottom { top: 420.58px; }
 .phone-mock.q .bottom { top: 464.06px; }
 
