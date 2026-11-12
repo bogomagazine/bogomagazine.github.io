@@ -780,3 +780,4 @@ html.lp-lock { overflow: hidden; }
 .share .share-voices .lp-voice .say { margin-top: 40px; gap: 30px; }
 .share .share-voices .lp-voice q { font-size: 19px; line-height: 1.5; padding-left: 0; text-indent: 0; font-weight: 800; }
 .share .share-voices .lp-voice .say p { display: block; font-size: 14px; line-height: 24px; }
+.share .share-voices .lp-voice { display: flex !important; } /* 랜딩 모바일 규칙(공감 카드 3~5번째 숨김)이 여기엔 안 걸리게 */
