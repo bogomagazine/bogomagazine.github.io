@@ -9,12 +9,15 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<!-- Google Analytics 4: 방문 경로 · 설치 버튼 통계 (ga.js 참고) -->
+<script src="/ga.js"></script>
 <script>
   // 랜딩 PC 팝업 QR 이 가리키는 주소. 찍은 기기에 따라 나눈다 (11/11): 아이폰·아이패드=App Store 앱, 그 밖=웹앱
   (function () {
     var ua = navigator.userAgent || '';
     var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-    location.replace(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : 'https://app.bogomagazine.co.kr');
+    // GA 에 기록한 뒤 이동 (ga.js. 막혀 있거나 느려도 0.8초 안에, ga.js 가 안 떠도 바로 이동)
+    (window.bgTrackAndGo || function (u) { location.replace(u); })(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : 'https://app.bogomagazine.co.kr');
   })();
 </script>
 </head>
