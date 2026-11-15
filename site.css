@@ -404,6 +404,9 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .lp-ready { margin-top: -8px; font-size: 14px; line-height: 1.5; text-align: center; color: var(--text-secondary); }
 .lp-ready[hidden] { display: none; }
 .lp-pop.done { align-items: center; padding-top: 56px; text-align: center; }
+/* 모바일만 보이는 [앱 다운받기] · 잡지 아래 가로로 긴 주황 버튼 */
+.lp-app-dl { display: none; }
+@media (max-width: 767px) { .lp-paper .lp-app-dl { display: flex; order: 3; width: 100%; } }
 .lp-btn.line { background: var(--surface-default); color: var(--text-primary); border: 1px solid var(--border-default); }
 .lp-qr { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .lp-qr img { width: 184px; height: 184px; padding: 20px; box-sizing: content-box; border: 1px solid var(--border-default); border-radius: 16px; background: #fff; }
