@@ -85,18 +85,17 @@
   timer = setInterval(tick, 1000);
 })();
 
-// [첫 호 무료로 시작하기]: 아이폰·아이패드는 App Store 앱으로, 안드로이드는 Play 스토어 앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
-// (11/15 안드로이드 앱 출시) iOS·안드로이드 모두 스토어 앱. PC 팝업 QR 은 /start (start.html) 가 찍은 기기에 따라 다시 나눈다.
+// [첫 호 무료로 시작하기]: 아이폰·아이패드는 App Store 앱으로, 안드로이드는 바로 웹앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
+// (11/11 결정) iOS 는 앱, 안드로이드는 웹앱. PC 팝업 QR 은 /start (start.html) 가 찍은 기기에 따라 다시 나눈다.
 var WEBAPP_URL = 'https://app.bogomagazine.co.kr';
 var APPSTORE_URL = 'https://apps.apple.com/kr/app/id6827039758';
-var PLAYSTORE_URL = 'https://play.google.com/store/apps/details?id=com.bogomagazine.app';
 (function () {
   var dialog = document.getElementById('start');
   if (!dialog) return;
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1); // iPadOS 는 Mac 으로 보고해서 터치로 구분
   var isPhone = isIOS || /Android|Mobile/i.test(ua);
-  var MOBILE_URL = isIOS ? APPSTORE_URL : PLAYSTORE_URL;
+  var MOBILE_URL = isIOS ? APPSTORE_URL : WEBAPP_URL;
   if (isIOS) document.querySelectorAll('.lp-sub.m-only').forEach(function (s) { s.textContent = 'App Store에서 앱을 받아요'; });
   var lastFocus = null;
   function open(trigger) {
@@ -114,7 +113,7 @@ var PLAYSTORE_URL = 'https://play.google.com/store/apps/details?id=com.bogomagaz
   document.querySelectorAll('[data-start]').forEach(function (a) {
     a.href = isPhone ? MOBILE_URL : WEBAPP_URL;
     a.addEventListener('click', function (e) {
-      if (isPhone) return; // 같은 창에서 바로 이동 (아이폰=App Store, 안드로이드=Play 스토어)
+      if (isPhone) return; // 같은 창에서 바로 이동 (아이폰=App Store, 안드로이드=웹앱)
       e.preventDefault(); open(a);
     });
   });
