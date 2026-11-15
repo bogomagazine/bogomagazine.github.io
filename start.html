@@ -16,13 +16,9 @@
   (function () {
     var ua = navigator.userAgent || '';
     var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-<<<<<<< HEAD
-    // GA 에 기록한 뒤 이동 (ga.js. 막혀 있거나 느려도 0.8초 안에, ga.js 가 안 떠도 바로 이동)
-    (window.bgTrackAndGo || function (u) { location.replace(u); })(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : 'https://app.bogomagazine.co.kr');
-=======
     var isAndroid = /Android/i.test(ua);
-    location.replace(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : isAndroid ? 'https://play.google.com/store/apps/details?id=com.bogomagazine.app' : 'https://app.bogomagazine.co.kr');
->>>>>>> origin/main
+    // GA 에 기록한 뒤 이동 (ga.js. 막혀 있거나 느려도 0.8초 안에, ga.js 가 안 떠도 바로 이동)
+    (window.bgTrackAndGo || function (u) { location.replace(u); })(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : isAndroid ? 'https://play.google.com/store/apps/details?id=com.bogomagazine.app' : 'https://app.bogomagazine.co.kr');
   })();
 </script>
 </head>
