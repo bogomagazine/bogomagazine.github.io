@@ -85,6 +85,16 @@
   timer = setInterval(tick, 1000);
 })();
 
+// [앱 다운받기] (모바일 잡지 아래): 아이폰·아이패드=App Store(기본 href), 그 밖(안드로이드)=Play 스토어
+(function () {
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  if (isIOS) return;
+  document.querySelectorAll('[data-app-download]').forEach(function (a) {
+    a.href = 'https://play.google.com/store/apps/details?id=com.bogomagazine.app&referrer=utm_source%3Dlanding%26utm_medium%3Dapp_download';
+  });
+})();
+
 // [첫 호 무료로 시작하기]: 아이폰·아이패드는 App Store 앱으로, 안드로이드는 Play 스토어 앱으로, PC 는 QR 팝업 (Figma 랜딩페이지 2655:15053)
 // (11/15 안드로이드 앱 출시) iOS·안드로이드 모두 스토어 앱. PC 팝업 QR 은 /start (start.html) 가 찍은 기기에 따라 다시 나눈다.
 var WEBAPP_URL = 'https://app.bogomagazine.co.kr';

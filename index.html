@@ -27,7 +27,7 @@
 <body class="lp">
 <!-- 4차 랜딩 (Figma 랜딩 · PC 1440 (4차 · 1·2차 합본) 1696:7765). ⑧ 앱 받기는 앱 출시 방식이 정해진 뒤 만든다 -->
 <div class="lp-fixed">
-  <div class="lp-band" data-dday-band>
+  <div class="lp-band" data-dday-band hidden><!-- 11/16 무료 이벤트 종료로 숨김 -->
     <span><span data-dday-label>D-3</span> · 11월 15일까지 가족방을 만들면 첫 호 무료</span>
     <span class="dim" aria-hidden="true">·</span>
     <span class="soft">결제 정보 없이 시작해요</span>
@@ -46,7 +46,7 @@
   <!-- ① 첫 화면 -->
   <section class="lp-sec lp-hero" id="top"><div class="lp-in">
     <div class="lp-hero-copy">
-      <span class="lp-chip"><img src="assets/landing/dot.svg" alt="">11월 15일까지 첫 호 무료</span>
+      <span class="lp-chip" hidden><img src="assets/landing/dot.svg" alt="">11월 15일까지 첫 호 무료</span>
       <h1>별일 없는<br>당신의 하루가,<br>제일 <img class="hand" src="assets/landing/hero-handwriting.png" alt="보고 싶어서" width="357" height="75"></h1>
       <p class="slogan">안부를 모아, 한 권의 마음으로.</p>
       <div class="lp-cta">
@@ -166,6 +166,8 @@
           <li><img src="assets/landing/check.svg" alt="">곁에 두고 몇 번이고 다시 봐요</li>
         </ul>
       </div>
+      <!-- 모바일만: 잡지 아래 [앱 다운받기] (11/16). 아이폰=App Store, 안드로이드=Play 스토어 (site.js) -->
+      <a class="lp-btn lp-app-dl" href="https://apps.apple.com/kr/app/id6827039758" data-app-download>앱 다운받기</a>
       <!-- 잡지 넘겨보기: 표지 → 2·3 → 7·8 → 뒤표지 (말순여사네 가족신문 제1호 중 6면) -->
       <div class="mag" data-flipbook role="group" aria-roledescription="잡지 넘겨보기" aria-label="보고잡지 예시 · 말순여사네 가족신문 제1호">
         <button class="mag-nav prev" type="button" data-flip-prev aria-label="이전 장">‹</button>
@@ -191,7 +193,7 @@
   </div></section>
 
   <!-- ⑥ 무료 혜택 · D-day (띠와 같은 값, 1초마다 갱신) -->
-  <section class="lp-sec lp-free" id="free" aria-labelledby="free-title"><div class="lp-in">
+  <section class="lp-sec lp-free" id="free" aria-labelledby="free-title" hidden><!-- 11/16 무료 이벤트 종료로 숨김 --><div class="lp-in">
     <div class="lp-offer">
       <img class="deco" src="assets/landing/deco-flower-deep.webp" alt="" width="177" height="177">
       <div class="copy">
@@ -221,7 +223,7 @@
     <div class="lp-qs">
       <details class="lp-q"><summary>어르신도 스마트폰이 필요하신가요?<img src="assets/landing/plus.svg" alt=""></summary><p>아니요. 어르신은 우편으로 실물 잡지를 받기만 하시면 돼요. 소식을 올리는 가족들만 웹이나 앱을 이용해주시면 됩니다.</p></details>
       <details class="lp-q"><summary>잡지는 얼마나 자주 오나요?<img src="assets/landing/plus.svg" alt=""></summary><p>2주에 한 호씩 와요. 2주 동안 가족이 올린 이야기를 한 권으로 엮어 보내드려요.</p></details>
-      <details class="lp-q"><summary>첫 호 무료는 언제까지예요?<img src="assets/landing/plus.svg" alt=""></summary><p>11월 15일까지 가족방을 만들면 첫 호는 무료예요. 결제 정보 없이 시작해요.</p></details>
+      <details class="lp-q" hidden><summary>첫 호 무료는 언제까지예요?<img src="assets/landing/plus.svg" alt=""></summary><p>11월 15일까지 가족방을 만들면 첫 호는 무료예요. 결제 정보 없이 시작해요.</p></details>
       <details class="lp-q"><summary>글을 잘 못 써도 괜찮을까요?<img src="assets/landing/plus.svg" alt=""></summary><p>그럼요. 사진 한 장, 짧은 한 줄이면 충분해요. 이야깃거리는 질문카드가 챙겨 드려요.</p></details>
       <details class="lp-q"><summary>앱은 없나요?<img src="assets/landing/plus.svg" alt=""></summary><p>아이폰은 App Store, 안드로이드는 Play 스토어에서 '보고잡지' 앱을 받아서 쓰시면 돼요.</p></details>
     </div>

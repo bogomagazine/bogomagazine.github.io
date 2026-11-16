@@ -151,7 +151,7 @@ footer .links a:hover { color: var(--orange-text); }
   --border-default: #E5E5E5; --border-strong: #D4D4D4; --action-primary: #FF7A3D;
   --action-disabled: #EBEBEB; --text-disabled: #A3A3A3;
   --radius-md: 12px; --radius-xl: 24px;
-  --lp-band: 46px; --lp-bar: 72px; --lp-fixed: 118px;
+  --lp-band: 46px; --lp-bar: 72px; --lp-fixed: 72px; /* 띠 숨김(11/16) → 상단바만. 띠 다시 켜면 118px */
 }
 body.lp { background: var(--surface-default); color: var(--text-primary); line-height: 1.5; }
 .lp h1, .lp h2, .lp h3, .lp p, .lp ul, .lp ol { margin: 0; padding: 0; }
@@ -173,7 +173,7 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 /* 위쪽 고정: 무료 안내 띠 + 상단바 */
 .lp-fixed { position: sticky; top: 0; z-index: 20; }
 .lp-band { height: var(--lp-band); background: var(--action-primary); color: var(--text-on-primary); display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 16px; line-height: 1.4; font-weight: 700; white-space: nowrap; padding: 0 16px; }
-.lp-band[hidden] { display: none; }
+.lp-band[hidden], .lp-sec[hidden], .lp-chip[hidden], .lp-q[hidden] { display: none; }
 .lp-band .dim { opacity: .6; }
 .lp-band .soft { font-weight: 500; }
 .lp-band a { color: inherit; text-decoration: underline; }
@@ -404,6 +404,9 @@ body.lp { background: var(--surface-default); color: var(--text-primary); line-h
 .lp-ready { margin-top: -8px; font-size: 14px; line-height: 1.5; text-align: center; color: var(--text-secondary); }
 .lp-ready[hidden] { display: none; }
 .lp-pop.done { align-items: center; padding-top: 56px; text-align: center; }
+/* 모바일만 보이는 [앱 다운받기] · 잡지 아래 가로로 긴 주황 버튼 */
+.lp-app-dl { display: none; }
+@media (max-width: 767px) { .lp-paper .lp-app-dl { display: flex; order: 3; width: 100%; margin-top: 16px; } }
 .lp-btn.line { background: var(--surface-default); color: var(--text-primary); border: 1px solid var(--border-default); }
 .lp-qr { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .lp-qr img { width: 184px; height: 184px; padding: 20px; box-sizing: content-box; border: 1px solid var(--border-default); border-radius: 16px; background: #fff; }
