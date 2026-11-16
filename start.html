@@ -12,18 +12,19 @@
 <!-- Google Analytics 4: 방문 경로 · 설치 버튼 통계 (ga.js 참고) -->
 <script src="/ga.js"></script>
 <script>
-  // 랜딩 PC 팝업 QR 이 가리키는 주소. 찍은 기기에 따라 나눈다 (11/11): 아이폰·아이패드=App Store 앱, 그 밖=웹앱
+  // 랜딩 PC 팝업 QR 이 가리키는 주소. 찍은 기기에 따라 나눈다 (11/11): 아이폰·아이패드=App Store, 안드로이드=Play 스토어, 그 밖(PC)=웹앱
   (function () {
     var ua = navigator.userAgent || '';
     var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/i.test(ua);
     // GA 에 기록한 뒤 이동 (ga.js. 막혀 있거나 느려도 0.8초 안에, ga.js 가 안 떠도 바로 이동)
-    (window.bgTrackAndGo || function (u) { location.replace(u); })(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : 'https://app.bogomagazine.co.kr');
+    (window.bgTrackAndGo || function (u) { location.replace(u); })(isIOS ? 'https://apps.apple.com/kr/app/id6827039758' : isAndroid ? 'https://play.google.com/store/apps/details?id=com.bogomagazine.app' : 'https://app.bogomagazine.co.kr');
   })();
 </script>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding:48px 16px;line-height:1.7">
   <p>보고잡지로 이동하고 있어요.</p>
   <p><a href="https://apps.apple.com/kr/app/id6827039758">아이폰 · App Store에서 받기</a></p>
-  <p><a href="https://app.bogomagazine.co.kr">안드로이드 · 바로 열기</a></p>
+  <p><a href="https://play.google.com/store/apps/details?id=com.bogomagazine.app">안드로이드 · Play 스토어에서 받기</a></p>
 </body>
 </html>
